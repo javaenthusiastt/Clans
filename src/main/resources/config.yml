@@ -1,0 +1,473 @@
+eula: true
+# Clans won't start if EULA is set to false, by setting this to true you accept following:
+# If instructed by the developer or a designated representative, you are required to disable or uninstall the plugin.
+# Failure to comply with the EULA may result in reporting your server to its hosting provider.
+
+# If you were provided with a premium key by the developer, paste it in the
+# following field to unlock additional features of the application.
+# With the premium key, you'll have access to premium benefits such as:
+# - An ad-free experience
+# - Enhanced features and performance
+# - SQL database if provided with one. CONTACT NEEDED
+# If you do not have a premium key, simply leave this field blank to continue
+# using the free version with standard features.
+#
+# Example with a key (replace with the actual key provided to you):
+# premium-key: "Gk53zHVuM1qfdn8zXYjrh87oWmT2I1ch3rLmfVmMlSDt9c_7cbYyHS-VsYh7o4kjD4ghG4zXmfq0s7LgXAT1aH2uF5mfwzFg1D-HPA=="
+#
+# If you have no key, simply leave it empty:
+key: ""
+
+#For a code, contact my discord at: l.x60 or send a mail!
+#Mail: contactsorryplspls@gmail.com
+
+
+# Developed by https://github.com/javaenthusiastt - (Discord: l.x60)
+
+
+############################################################
+# +------------------------------------------------------+ #
+# |                 Global                               | #
+# +------------------------------------------------------+ #
+############################################################
+
+plugin-prefix: "<gradient:#8828F8:#2667CD>CLANS</gradient> &8» &r" # Plugin prefix, used in most messages
+gui-preference: DEFAULT # Options: DEFAULT, STYLED
+gui-decoration: true # If true, effect provided in gui-decoration-type will play in the GUI.
+gui-decoration-type: "Rainbow" # Options: Rainbow, Shiny
+version: V_2.2
+
+debug: true # Enables debug messages in the console
+automatic-saving: true # Automatically saves clan data at regular intervals
+logs: false # Logs plugin activities to a file
+filter-detection: true # Enables a filter for detecting inappropriate content in clan names/messages
+cancel-spaces: true # If true, it won't let people make clans with spaces between the names like "Clan 1"
+
+discord: false # Discord Integration (Reload of plugin needed, not config or data reload.)
+discord-bot-token: "" # Your discord bot token. (Reload of plugin needed, not config or data reload.)
+discord-channel-id: "" # Your discord channel id where you want all clan related stuff to be sent. (Reload of plugin needed, not config or data reload.)
+discord-top-10-header-text: "Top 10 Clans" # Header text (Reload of plugin needed, not config or data reload.)
+
+max-clan-members: 16 # Maximum number of members in a single clan
+max-clan-admins: 2 # Maximum number of admins in a clan
+max-clan-co-owners: 1 # Maximum number of co-owners in a clan
+max-clan-invites-at-once: 3 # Maximum number of clan invites a player can send at once
+max-length-on-clan-names: 10 # Maximum character length for clan names
+
+clanchest: true # Enable or disable the clan chest feature
+clan-automatic-leaderboards: true # Automatically update clan leaderboards
+
+placeholderapi: false # Enable PlaceholderAPI integration, ignore identifier and formats if set to false
+placeholder-identifier: Clans # PlaceholderAPI identifier
+placeholder-format-playerclan: name # Placeholder format for clan name # Example: /papi parse sorryplspls %Clans_name% will return "myClan" or "No Clan"
+placeholder-format-clansize: size # Placeholder format for all clans # Example: /papi parse sorryplspls %Clans_size% will return 200 if there's 200 clans or "0" if empty
+
+broadcast: true # If true, clan-related announcements will be broadcasted to the server
+reload-config-cmd: true # Will let you type /c reload if set to true
+cooldowns: true # If true, cooldowns will be set to clan related stuff like announcements, rename, etc.
+
+points-reduce-per-death: 1 #Points that will be taken from player's clan when they die.
+points-give-per-kill: 5 #Points that will be recieved from player's clan when they kill.
+
+clanchat: true # Enable or disable clan chat
+clanchat-format: "&8[&b{c}{clanname}{clanrank}&8] &8(&7{leaderboard_place}&8) &f{color}{player}&r: &f{message}" # Example: [BlueClan Leader] (&6Clan Owner) Sorryplspls: &fHey Guys!
+
+clan-owner: "&6ᴄʟᴀɴ ᴏᴡɴᴇʀ" # Display name for clan owner rank
+clan-co-owner: "&dᴄʟᴀɴ ᴄᴏ-ᴏᴡɴᴇʀ" # Display name for co-owner rank
+clan-admin: "&4ᴄʟᴀɴ ᴀᴅᴍɪɴ" # Display name for admin rank
+clan-member: "&aᴄʟᴀɴ ᴍᴇᴍʙᴇʀ" # Display name for member rank
+clan-no-rank-found-error: "&cNo rank found, report to developer..." # This is an error, should not show
+
+background-decoration-unicode: " "
+admin-gui-name: "<gradient:#393939:#413636>ᴄʟᴀɴꜱ ♦ ᴀᴅᴍɪɴ</gradient> &8(&f1/1&8)"
+clan-gui-name: "<gradient:#393939:#413636>ᴄʟᴀɴꜱ ♦ ᴍᴇɴᴜ</gradient> &8(&f1/1&8)"
+clan-members-gui-name: "<gradient:#393939:#413636>ᴄʟᴀɴꜱ ♦ ᴍᴇᴍʙᴇʀꜱ</gradient> &8(&f1/1&8)"
+
+world_friendlyfire: "World" # World where friendly fire will be used if enabled.
+
+############################################################
+# +------------------------------------------------------+ #
+# |                 Messages                             | #
+# +------------------------------------------------------+ #
+############################################################
+
+messages:
+  error: "&c⚠ ᴀ ᴇʀʀᴏʀ ʜᴀᴘᴘᴇɴᴅ, ᴛʀʏ ᴛʜᴇ ꜰᴇᴀᴛᴜʀᴇ ᴀɢᴀɪɴ ᴏʀ ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀ! &c⚠"
+  error_not_in_clan: "&7ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ, ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʙᴇ ɪɴ ᴀ ᴄʟᴀɴ! ⚠"
+  error_higher_rank_needed: "&7ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ, ʏᴏᴜ ɴᴇᴇᴅ ᴀ ʜɪɢʜᴇʀ ʀᴀɴᴋ ɪɴ ʏᴏᴜʀ ᴄʟᴀɴ! &c⚠"
+  error_no_pending_invites: "&7ʏᴏᴜ ʜᴀᴠᴇ ɴᴏ ᴘᴇɴᴅɪɴɢ ᴄʟᴀɴ ɪɴᴠɪᴛᴀᴛɪᴏɴꜱ!"
+  error_no_clan_found: "&7ᴡᴇ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀ ᴄʟᴀɴ ᴏʀ ᴘʟᴀʏᴇʀ ᴡɪᴛʜ ᴛʜᴀᴛ ɴᴀᴍᴇ! &c⚠"
+  error_invalid_executor: "&7ʏᴏᴜ ᴄᴀɴ'ᴛ ᴇxᴇᴄᴜᴛᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜰʀᴏᴍ ᴛʜɪꜱ!"
+  error_inappropiate_language: "&7ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ᴄᴀɴ'ᴛ ᴄᴏɴᴛᴀɪɴ ɪɴᴀᴘᴘʀᴏᴘʀɪᴀᴛᴇ ʟᴀɴɢᴜᴀɢᴇ!"
+  error_clan_already_exists: "&7ᴛʜɪꜱ ᴄʟᴀɴ ᴀʟʀᴇᴀᴅʏ ᴇxɪꜱᴛꜱ, ᴛʀʏ ᴀɴᴏᴛʜᴇʀ ɴᴀᴍᴇ!"
+  error_clan_need_more_points: "&7ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ꜰᴇᴀᴛᴜʀᴇ, ʏᴏᴜʀ ᴄʟᴀɴ ɴᴇᴇᴅꜱ ᴍᴏʀᴇ ᴘᴏɪɴᴛꜱ!"
+  error_you_are_on_cooldown_CLAN_ANNOUNCEMENT: "&7ʏᴏᴜ ᴀʀᴇ ᴏɴ ᴀ ᴄᴜʀʀᴇɴᴛ ᴄᴏᴏʟᴅᴏᴡɴ ꜰᴏʀ ᴄʟᴀɴ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛꜱ!"
+  error_you_are_on_cooldown_CLAN_RENAMES: "&7ʏᴏᴜ ᴀʀᴇ ᴏɴ ᴀ ᴄᴜʀʀᴇɴᴛ ᴄᴏᴏʟᴅᴏᴡɴ ꜰᴏʀ ᴄʟᴀɴ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛꜱ!"
+  error_you_are_on_cooldown_CLAN_CREATIONS: "&7ʏᴏᴜ ᴀʀᴇ ᴏɴ ᴀ ᴄᴜʀʀᴇɴᴛ ᴄᴏᴏʟᴅᴏᴡɴ ꜰᴏʀ ᴄʟᴀɴ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛꜱ!"
+  error_not_the_owner: "&7ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴛʜᴇ ᴏᴡɴᴇʀ ᴏꜰ ᴛʜɪꜱ ᴄʟᴀɴ!"
+  error_already_in_clan: "&7ʏᴏᴜ ᴀʀᴇ ᴀʟʀᴇᴀᴅʏ ɪɴ ᴀ ᴄʟᴀɴ!"
+  error_cant_leave_while_owner: "&7ʏᴏᴜ ᴄᴀɴ'ᴛ ʟᴇᴀᴠᴇ ᴡʜɪʟᴇ ʙᴇɪɴɢ ᴀ ᴏᴡɴᴇʀ ᴏꜰ ᴛʜᴇ ᴄʟᴀɴ."
+  error_failed_to_leave_clan: "&7ᴡᴇ ꜰᴀɪʟᴇᴅ ᴛᴏ ʀᴇᴍᴏᴠᴇ ʏᴏᴜ ꜰʀᴏᴍ ᴛʜᴇ ᴄʟᴀɴ, ʏᴏᴜ ᴍɪɢʜᴛ ɴᴏᴛ ʙᴇ ᴀ ᴍᴇᴍʙᴇʀ!"
+  error_clan_name_empty: "&7ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ᴄᴀɴ'ᴛ ʙᴇ ᴇᴍᴘᴛʏ, ᴄᴀɴᴄᴇʟʟᴇᴅ ᴄʟᴀɴ ᴄʀᴇᴀᴛɪᴏɴ!"
+  error_clan_name_too_long: "&7ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ɪꜱ ᴛᴏᴏ ʟᴏɴɢ, ᴄᴀɴᴄᴇʟʟᴇᴅ ᴄʟᴀɴ ᴄʀᴇᴀᴛɪᴏɴ!"
+  error_clan_name_contain_special_characters: "&7ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ᴄᴀɴ'ᴛ ᴄᴏɴᴛᴀɪɴ ꜱᴘᴇᴄɪᴀʟ ᴄʜᴀʀᴀᴄᴛᴇʀꜱ, ᴄᴀɴᴄᴇʟʟᴇᴅ ᴄʟᴀɴ ᴄʀᴇᴀᴛɪᴏɴ!"
+  error_clan_name_contain_spaces: "&7ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ᴄᴀɴ'ᴛ ᴄᴏɴᴛᴀɪɴ ꜱᴘᴀᴄᴇꜱ, ᴄᴀɴᴄᴇʟʟᴇᴅ ᴄʟᴀɴ ᴄʀᴇᴀᴛɪᴏɴ!"
+  error_already_clanned: "&7ʏᴏᴜ ᴀʀᴇ ᴀʟʀᴇᴀᴅʏ ɪɴ ᴀ ᴄʟᴀɴ ᴀɴᴅ ᴄᴀɴ'ᴛ ᴊᴏɪɴ ᴀ ɴᴇᴡ."
+  error_clan_maxed: "&7ᴛʜɪꜱ ᴄʟᴀɴ ɪꜱ ᴄᴜʀʀᴇɴᴛʟʏ ꜰᴜʟʟ, ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ.."
+  error_player_already_clanned: "&7ᴛʜɪꜱ ᴘʟᴀʏᴇʀ ɪꜱ ᴀʟʀᴇᴀᴅʏ ɪɴ ᴀ ᴄʟᴀɴ."
+  error_mentioned_yourself: "&7ʏᴏᴜ ᴄᴀɴ'ᴛ ᴜꜱᴇ ᴛʜɪꜱ ꜰᴇᴀᴛᴜʀᴇ ᴏɴ ʏᴏᴜʀꜱᴇʟꜰ!"
+  error_already_member: "&7ᴛʜɪꜱ ᴘʟᴀʏᴇʀ ɪꜱ ᴀʟʀᴇᴀᴅʏ ᴀ ᴍᴇᴍʙᴇʀ ᴏꜰ ᴛʜᴇ ᴄʟᴀɴ."
+  error_already_invited: "&7ᴛʜɪꜱ ᴘʟᴀʏᴇʀ ɪꜱ ᴀʟʀᴇᴀᴅʏ ɪɴᴠɪᴛᴇᴅ ᴛᴏ ᴛʜᴇ ᴄʟᴀɴ."
+  error_maxed_invitations: "&7ᴛʜɪꜱ ᴘʟᴀʏᴇʀ ʜᴀꜱ ʀᴇᴀᴄʜᴇᴅ ᴛʜᴇ ᴍᴀx ʟɪᴍɪᴛ ᴏꜰ ɪɴᴠɪᴛᴇꜱ."
+  pending_invites: "&7ʏᴏᴜ ʜᴀᴠᴇ &a{pending} &7ᴘᴇɴᴅɪɴɢ ᴄʟᴀɴ ɪɴᴠᴀᴛɪᴏɴꜱ!"
+  waiting_for_rename: "&7ᴛʏᴘᴇ ʏᴏᴜʀ ɴᴇᴡ ᴄʟᴀɴ ɴᴀᴍᴇ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ!"
+  waiting_for_name: "&7ᴛʏᴘᴇ ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ!"
+  invited_player: "&7ʏᴏᴜ ɪɴᴠɪᴛᴇᴅ {player} ᴛᴏ ʏᴏᴜʀ ᴄʟᴀɴ!"
+  you_were_invited: "&7ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ɪɴᴠɪᴛᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴛʜᴇ ᴄʟᴀɴ {get_clan}!"
+  you_were_invited1: "&7ᴛᴏ ᴀᴄᴄᴇᴘᴛ, ᴛʏᴘᴇ /ᴄʟᴀɴᴀᴄᴄᴇᴘᴛ {get_clan}!"
+  joined_clan: "{player} ᴊᴏɪɴᴇᴅ ᴛʜᴇ ᴄʟᴀɴ {get_clan}!"
+  confirm_deletion: "&7ᴀʀᴇ ʏᴏᴜ ꜱᴜʀᴇ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴄʟᴀɴ? ᴛʏᴘᴇ ʏᴏᴜʀ ᴄʟᴀɴ ɴᴀᴍᴇ {get_clan} ɪɴ ᴄʜᴀᴛ ᴛᴏ ᴄᴏɴꜰɪʀᴍ"
+  clan_points: "&7ʏᴏᴜʀ ᴄʟᴀɴ ʜᴀꜱ {get_points} ᴘᴏɪɴᴛꜱ"
+  left_clan: "&7ʏᴏᴜ ʜᴀᴠᴇ ʟᴇꜰᴛ ᴛʜᴇ ᴄʟᴀɴ: {get_clan}"
+  notify_left: "&7{player} ʜᴀꜱ ʟᴇꜰᴛ ᴛʜᴇ ᴄʟᴀɴ!"
+  logo_setting: "&7ᴘʟᴇᴀꜱᴇ ʜᴏʟᴅ ᴀ ɪᴛᴇᴍ ɪɴ ʏᴏᴜʀ ʜᴀɴᴅ ᴛᴏ ꜱᴇᴛ ɪᴛ ᴀꜱ ʏᴏᴜʀ ᴄʟᴀɴ ʟᴏɢᴏ!"
+  logo_set: "&7ʏᴏᴜ ʜᴀᴠᴇ ꜱᴇᴛ ʏᴏᴜʀ ᴄʟᴀɴ ʟᴏɢᴏ."
+  made_clan: "&7{player} ᴍᴀᴅᴇ ᴀ ᴄʟᴀɴ ᴄᴀʟʟᴇᴅ: &7{get_clan}"
+  deleted_clan: "&7ʏᴏᴜ ꜱᴜᴄᴄᴇꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴛʜᴇ ᴄʟᴀɴ: {get_clan}"
+  failed_to_delete: "&7ꜰᴀɪʟᴇᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴄʟᴀɴ, ᴍᴀᴋᴇ ꜱᴜʀᴇ ᴛʜᴇ ᴄʟᴀɴ ɴᴀᴍᴇ ɪꜱ ᴄᴏʀʀᴇᴄᴛ!"
+  earned_point: "&7ʏᴏᴜ ʀᴇᴄɪᴇᴠᴇᴅ {get_points} ᴄʟᴀɴ ᴘᴏɪɴᴛꜱ!"
+  processing_transfership: "&7ᴘʟᴇᴀꜱᴇ ᴛʏᴘᴇ ᴛʜᴇ ɴᴀᴍᴇ ᴏꜰ ᴛʜᴇ ɴᴇᴡ ᴏᴡɴᴇʀ ɪɴ ᴄʜᴀᴛ:"
+  cancel_ownership_transfer_1: "&7ʏᴏᴜ ᴄᴀɴ'ᴛ ᴛʀᴀɴꜱꜰᴇʀʜɪᴘ ᴏᴡɴᴇʀꜱʜɪᴘ ᴛᴏ ʏᴏᴜʀꜱᴇʟꜰ!"
+  cancel_ownership_transfer_2: "&7ᴘʟᴀʏᴇʀ ɪꜱ ɴᴏᴛ ɪɴ ʏᴏᴜʀ ᴄʟᴀɴ ᴏʀ ɪꜱ ɴᴏᴛ ᴏɴʟɪɴᴇ!"
+  cancel_ownership_transfer_3: "&7ᴛʜᴇ ʀᴇǫᴜᴇꜱᴛ ʜᴀꜱ ʙᴇᴇɴ ᴄᴀɴᴄᴇʟʟᴇᴅ, ᴛʜᴇ ᴘʟᴀʏᴇʀ ʟᴏɢɢᴇᴅ ᴏꜰꜰ!"
+  offered_ownership_transfer: "&7ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴏꜰꜰᴇʀᴇᴅ ᴛʀᴀɴꜰꜱᴇʀꜱʜɪᴘ ᴛᴏ ᴛʜᴇ ᴄʟᴀɴ: {get_clan} ᴛᴏ ʀᴇꜱᴘᴏɴᴅ, ᴛʏᴘᴇ 'ᴅᴇɴʏ' ᴏʀ 'ᴀᴄᴄᴇᴘᴛ'!"
+  sent_ownership_transfer: "&7ᴏᴡɴᴇʀꜱʜɪᴘ ᴛʀᴀɴꜱꜰᴇʀ ʜᴀꜱ ʙᴇᴇɴ ꜱᴇɴᴛ ᴛᴏ {player}!"
+  accepted_ownership_transfer: "&7ʏᴏᴜ ᴀʀᴇ ɴᴏᴡ ᴛʜᴇ ᴏᴡɴᴇʀ ᴏꜰ ᴛʜᴇ ᴄʟᴀɴ: {get_clan}!"
+  denied_ownership_transfer: "&7ʏᴏᴜ ʜᴀᴠᴇ ᴅᴇɴɪᴇᴅ ᴛʜᴇ ᴏᴡɴᴇʀꜱʜɪᴘ ᴛʀᴀɴꜱꜰᴇʀ!"
+  notify_other_owner_transfer: "&7ᴛʜᴇ ᴛʀᴀɴꜱꜰᴇʀ ʜᴀꜱ ʙᴇᴇɴ ᴅᴇɴɪᴇᴅ ʙᴇᴄᴀᴜꜱᴇ ᴛʜᴇ ᴘʟᴀʏᴇʀ ᴅᴇɴɪᴇᴅ."
+  ownership_transfered: "&7ᴏᴡɴᴇʀꜱʜɪᴘ ᴏꜰ ᴛʜᴇ ᴄʟᴀɴ {get_clan} ʜᴀꜱ ɴᴏᴡ ʙᴇᴇɴ ᴛʀᴀɴꜱꜰᴇʀʀᴇᴅ."
+  renamed_clan: "&7{player} ʜᴀꜱ ʀᴇɴᴀᴍᴇᴅ ᴛʜᴇɪʀ ᴄʟᴀɴ ᴛᴏ: {get_clan}"
+  config_reloaded: "<gradient:#FF2FF1:#ADF3FD>ʀᴇʟᴏᴀᴅᴇᴅ ᴄᴏɴꜰɪɢ.ʏᴍʟ, ᴇᴠᴇʀʏᴛʜɪɴɢ ɪꜱ ᴜᴘ ᴛᴏ ᴅᴀᴛᴇ!</gradient>"
+  config_disabled_feature: "&cᴛʜɪꜱ ꜰᴇᴀᴛᴜʀᴇ ɪꜱ ᴅɪꜱᴀʙʟᴇᴅ ɪɴ ᴛʜᴇ ᴄʟᴀɴꜱ ᴄᴏɴꜰɪɢ.ʏᴍʟ."
+  clanchat_disabled: "&cʏᴏᴜ ᴅɪꜱᴀʙʟᴇᴅ ᴄʟᴀɴᴄʜᴀᴛ!"
+  clanchat_enabled: "&aʏᴏᴜ ᴇɴᴀʙʟᴇᴅ ᴄʟᴀɴᴄʜᴀᴛ!"
+  clan_announcement: "&7ᴄʟᴀɴ {get_clan} &7ɪꜱ ʟᴏᴏᴋɪɴɢ ꜰᴏʀ ᴍᴇᴍʙᴇʀꜱ! ᴛʜᴇ ᴀɴɴᴏᴜɴᴄᴇʀ ᴡᴀꜱ &b{player}"
+  no_permission: "&cʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ᴘᴇʀᴍɪꜱꜱɪᴏɴ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ."
+  data_refreshed: "<gradient:#FF2FF1:#ADF3FD>ʀᴇʟᴏᴀᴅᴇᴅ ᴅᴀᴛᴀ, ᴇᴠᴇʀʏᴛʜɪɴɢ ɪꜱ ᴜᴘ ᴛᴏ ᴅᴀᴛᴇ!</gradient>"
+  few_arguments: "&cᴛᴏᴏ ʟɪᴛᴛʟᴇ ᴀʀɢᴜᴍᴇɴᴛꜱ, ᴘʟᴇᴀꜱᴇ ꜱᴘᴇᴄɪꜰʏ ᴀ ᴄʟᴀɴ ᴏʀ ᴘʟᴀʏᴇʀ!"
+  no_player_found: "&cᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴛʜᴇ ᴘʟᴀʏᴇʀ ꜱᴘᴇᴄɪꜰɪᴇᴅ."
+  friendlyfire: "&7ʏᴏᴜʀ ᴄʟᴀɴ ʜᴀꜱ ꜰʀɪᴇɴᴅʟʏ ꜰɪʀᴇ ᴅɪꜱᴀʙʟᴇᴅ!"
+  clan_color_set: "&7ᴛʜᴇ ᴄʟᴀɴ ᴄᴏʟᴏʀ ʜᴀꜱ ʙᴇᴇɴ ꜱᴇᴛ ᴛᴏ {color}{selected_name}!"
+  clan_color_not_ranked: "&7ᴏɴʟʏ ᴛʜᴇ ᴛᴏᴘ {required} ᴄʟᴀɴ ᴄᴀɴ ʙᴜʏ ᴛʜɪꜱ ᴄᴏʟᴏʀ!"
+  kick_successful: "&7ʏᴏᴜ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴋɪᴄᴋᴇᴅ {target} ꜰʀᴏᴍ ᴛʜᴇ ᴄʟᴀɴ!"
+  kick_notifiy: "&7ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴋɪᴄᴋᴇᴅ ꜰʀᴏᴍ ᴛʜᴇ ᴄʟᴀɴ: {clan}"
+  clan_information_display_playerformat:
+    messages:
+      member-format: "{player_name} &8({rank}&8), &8(&aᴘᴏɪɴᴛꜱ ᴇᴀʀɴᴇᴅ: &7{points}&8)"
+  clan_information_display:
+    - ""
+    - "&bᴄʟᴀɴ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ꜰᴏʀ ᴛʜᴇ ᴄʟᴀɴ: &7{get_clan}"
+    - ""
+    - "&eᴏᴡɴᴇʀ: &f{get_owner}"
+    - "&eᴄʟᴀɴ ᴅᴀᴛᴇ: &f{get_date}"
+    - ""
+    - "&3ᴄʟᴀɴ ᴘᴏɪɴᴛꜱ: &f{get_points}"
+    - "&3ᴄʟᴀɴ ᴛᴇᴀᴍ: &f{fetchmembers}"
+  status: "&7ꜱᴛᴀᴛᴜꜱ: "
+  online: "&aᴏɴʟɪɴᴇ"
+  offline: "&cᴏꜰꜰʟɪɴᴇ"
+  no_data: "&cɴᴏ ᴅᴀᴛᴀ ꜰᴏᴜɴᴅ"
+  last_online: "&7ʟᴀꜱᴛ ᴏɴʟɪɴᴇ: <white>{days} &7ᴅᴀʏꜱ, <white>{hours} &7ʜᴏᴜʀꜱ, <white>{minutes} &7ᴍɪɴᴜᴛᴇꜱ ᴀɢᴏ"
+
+
+############################################################
+# +------------------------------------------------------+ #
+# |                 GUI                                  | #
+# +------------------------------------------------------+ #
+############################################################
+
+#PS: Don't use the same items if they're in the same category.
+
+gui:
+  member-gui-messages:
+    PROMOTE_DEMOTE: "<white>ʟᴇꜰᴛ ᴄʟɪᴄᴋ ᴛᴏ ʜᴀɴᴅʟᴇ ᴘʟᴀʏᴇʀꜱ ʀᴀɴᴋ"
+    KICK_PLAYER: "<white>ʀɪɢʜᴛ ᴄʟɪᴄᴋ ᴛᴏ ᴋɪᴄᴋ ᴘʟᴀʏᴇʀ"
+    POINTS_EARNED: "<white>ᴘʟᴀʏᴇʀ ᴘᴏɪɴᴛꜱ: {player_points}"
+  #-- Clans Main Menu --#
+  adminstration:
+    type: BLAZE_POWDER
+    slot: 22
+    view:
+      name: "<gradient:#FFFFFF:#8828F8>ᴄʟᴀɴ ᴀᴅᴍɪɴꜱᴛʀ</gradient><gradient:#8828F8:#8828F8>ᴀᴛɪᴏɴ</gradient>"
+      lore:
+        - ""
+        - "&8● &fᴄʟᴀɴ ᴄʀᴇᴀᴛɪᴏɴ"
+        - "&8● &fᴄʟᴀɴ ᴅᴇʟᴇᴛᴇ"
+        - "&8● &fᴄʟᴀɴ ʟᴇᴀᴠᴇ"
+        - "&8● &fᴄʟᴀɴ ʀᴇɴᴀᴍᴇ"
+        - "&8● &fᴏᴡɴᴇʀ ᴛʀᴀɴꜱꜰᴇʀꜱʜɪᴘ"
+        - ""
+        - "&e&lᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  management:
+    type: CHEST
+    slot: 30
+    view:
+      name: "<gradient:#FFFFFF:#8828F8>ᴄʟᴀɴ ᴍᴀɴᴀɢᴀ</gradient><gradient:#8828F8:#8828F8>ᴍᴇɴᴛ</gradient>"
+      lore:
+        - ""
+        - "&8● &fᴄʟᴀɴ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ"
+        - "&8● &fᴄʟᴀɴ ᴍᴇᴍʙᴇʀꜱ"
+        - "&8● &fᴄʟᴀɴ ᴄʜᴇꜱᴛ"
+        - "&8● &fᴄʟᴀɴ ᴘᴏɪɴᴛꜱ"
+        - ""
+        - "&e&lᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  communication:
+    type: BOOK
+    slot: 32
+    view:
+      name: "<gradient:#FFFFFF:#8828F8>ᴄʟᴀɴ ᴄᴏᴍᴍᴜɴɪᴄ</gradient><gradient:#8828F8:#8828F8>ᴀᴛɪᴏɴ</gradient>"
+      lore:
+        - ""
+        - "&8● &fᴄʟᴀɴ ᴄʜᴀᴛ"
+        - "&8● &fᴄʟᴀɴ ɪɴᴠɪᴛᴇꜱ"
+        - "&8● &fᴄʜᴇᴄᴋ ᴘᴇʀꜱᴏɴᴀʟ ɪɴᴠɪᴛᴇꜱ"
+        - ""
+        - "&e&lᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  information:
+    type: PAPER
+    slot: 31
+    view:
+      name: "<gradient:#FFFFFF:#8828F8>ᴄʟᴀɴ ɪɴꜰᴏʀᴍ</gradient><gradient:#8828F8:#8828F8>ᴀᴛɪᴏɴ</gradient>"
+      lore:
+        - ""
+        - "&8● &fᴄʟᴀɴ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅꜱ"
+        - "&8● &fᴄʟᴀɴ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ"
+        - "&8● &fᴄʟᴀɴ ʟᴏɢᴏ"
+        - ""
+        - "&e&lᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  customization:
+    type: BLAZE_ROD
+    slot: 40
+    view:
+      name: "<gradient:#FFFFFF:#8828F8>ᴄʟᴀɴ ᴄᴜꜱᴛᴏᴍɪᴢ</gradient><gradient:#8828F8:#8828F8>ᴀᴛɪᴏɴ</gradient>"
+      lore:
+        - " "
+        - "&8● &fᴄʟᴀɴ ᴄᴏʟᴏʀ"
+        - "&8● &fᴄʟᴀɴ ꜱᴇᴛᴛɪɴɢꜱ"
+        - "&8● &fᴄʟᴀɴ ʀᴀɴᴋꜱ"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  #-- Main Menu --#
+  #-- Other --#
+
+  #Category: - Clan Managament
+  CLAN_MEMBERS:
+    type: PLAYER_HEAD
+    slot: 13
+    view:
+      name: "<white>ᴄʟᴀɴ ᴍᴇᴍʙᴇʀꜱ"
+      lore:
+        - ""
+        - "&8● &fView and manage all members in the clan"
+        - "&8● &fCheck their ranks and activity."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  CLAN_CHEST:
+    type: CHEST
+    slot: 21
+    view:
+      name: "<white>ᴄʟᴀɴ ᴄʜᴇꜱᴛ"
+      lore:
+        - " "
+        - "&8● &fAccess your clan's shared storage."
+        - "&8● &fHere you can view and manage items from the Clan."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  CLAN_POINTS:
+    type: NETHER_STAR
+    slot: 22
+    view:
+      name: "<white>ᴄʟᴀɴ ᴘᴏɪɴᴛꜱ"
+      lore:
+        - ""
+        - "&8● &fView your clan's earned points."
+        - "&8● &fCheck your progress through achievements."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+  CLAN_ANNOUNCEMENT:
+    type: EMERALD
+    slot: 23
+    view:
+      name: "<white>ᴄʟᴀɴ ᴀɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ"
+      lore:
+        - ""
+        - "&8● &fAnnounce that your clan is looking for clan members."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ!"
+
+  #Category: - Clan Adminstration
+  CLAN_CREATION:
+    type: EMERALD
+    slot: 22
+    view:
+      name: "<white>ᴄʀᴇᴀᴛᴇ ᴄʟᴀɴ"
+      lore:
+        - ""
+        - "&8● &fClick here to create a new clan."
+        - "&8● &fMake sure the name is unique!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ᴄʀᴇᴀᴛᴇ!"
+  CLAN_DELETE:
+    type: SKELETON_SKULL
+    slot: 14
+    view:
+      name: "<white>ᴅᴇʟᴇᴛᴇ ᴄʟᴀɴ"
+      lore:
+        - ""
+        - "&8● &fClick here to permanently delete your clan."
+        - "&8● &fThis action cannot be undone!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ᴅᴇʟᴇᴛᴇ!"
+  CLAN_LEAVE:
+    type: FEATHER
+    slot: 12
+    view:
+      name: "<white>ʟᴇᴀᴠᴇ ᴄʟᴀɴ"
+      lore:
+        - ""
+        - "&8● &fClick here to leave your current clan."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ʟᴇᴀᴠᴇ!"
+  CLAN_TRANSFER:
+    type: STICK
+    slot: 15
+    view:
+      name: "<white>ᴛʀᴀɴꜱꜰᴇʀ ᴏᴡɴᴇʀꜱʜɪᴘ"
+      lore:
+        - ""
+        - "&8● &fClick here to transfer your clan ownership."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ᴛʀᴀɴꜱꜰᴇʀ!"
+  CLAN_RENAME:
+    type: NAME_TAG
+    slot: 11
+    view:
+      name: "<white>ʀᴇɴᴀᴍᴇ ᴄʟᴀɴ"
+      lore:
+        - ""
+        - "&8● &fClick here to rename your current clan."
+        - "&8● &fChange the name of your clan!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ʀᴇɴᴀᴍᴇ!"
+
+  #Category: - Clan Communication
+  CLAN_CHAT:
+      type: BOOK
+      slot: 13
+      view:
+        name: "<white>ᴄʟᴀɴ ᴄʜᴀᴛ"
+        lore:
+          - ""
+          - "&8● &fSend messages to your clan members."
+          - "&8● &fCoordinate and strategize with your clan!"
+          - ""
+          - "&cᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴀᴛ!"
+  CLAN_INVITE:
+    type: BELL
+    slot: 21
+    view:
+      name: "<white>ᴄʟᴀɴ ɪɴᴠɪᴛᴇ"
+      lore:
+        - ""
+        - "&8● &fInvite players to join your clan."
+        - "&8● &fSend invitations to others and grow your clan!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ɪɴᴠɪᴛᴇ!"
+  CLAN_SEE_INVITES:
+    type: ECHO_SHARD
+    slot: 23
+    view:
+      name: "<white>ꜱᴇᴇ ɪɴᴠɪᴛᴇꜱ"
+      lore:
+        - ""
+        - "&8● &fView pending invitations."
+        - "&8● &fDecide which clans you want to join!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ɪɴᴠɪᴛᴇꜱ!"
+
+  #Category: - Clan Customization
+  CLAN_COLOR:
+    type: BLACK_DYE
+    slot: 13
+    view:
+      name: "<white>ᴄʟᴀɴ ᴄᴏʟᴏʀ"
+      lore:
+        - ""
+        - "&8● &fChange your clan's color."
+        - "&8● &fThis color will be displayed in leaderboards, and more places!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ᴄᴏʟᴏʀ ᴏᴘᴛɪᴏɴꜱ!"
+  CLAN_SETTINGS:
+    type: EMERALD
+    slot: 21
+    view:
+      name: "<white>ᴄʟᴀɴ ꜱᴇᴛᴛɪɴɢꜱ"
+      lore:
+        - ""
+        - "&8● &fChange your clan settings here."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ꜱᴇᴛᴛɪɴɢꜱ!"
+  CLAN_RANKS:
+    type: GOLDEN_SWORD
+    slot: 23
+    view:
+      name: "<white>ᴄʟᴀɴ ʀᴀɴᴋꜱ"
+      lore:
+        - ""
+        - "&8● &fLearn about different ranks."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ʀᴀɴᴋꜱ!"
+
+  #Category: - Clan Information
+  CLAN_LEADERBOARDS:
+    type: ITEM_FRAME
+    slot: 13
+    view:
+      name: "<white>ᴄʟᴀɴ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅꜱ"
+      lore:
+        - ""
+        - "&8● &fCheck out the leaderboards for clans."
+        - "&8● &fSee the top-ranked clans based on points."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ᴛʜᴇ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ!"
+  CLAN_INFORMATION:
+    type: PAPER
+    slot: 21
+    view:
+      name: "<white>ᴄʟᴀɴ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ"
+      lore:
+        - ""
+        - "&8● &fView your clan's stats, achievements,"
+        - "&8● &fand other important details about your clan."
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ꜱᴇᴇ ᴛʜᴇ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ!"
+  CLAN_LOGO:
+    type: BLACK_BANNER
+    slot: 23
+    view:
+      name: "<white>ᴄʟᴀɴ ʟᴏɢᴏ"
+      lore:
+        - ""
+        - "&8● &fChange your clan's logo."
+        - "&8● &fYour logo represents your clan visually!"
+        - ""
+        - "&cᴄʟɪᴄᴋ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ ᴄʟᴀɴ ʟᴏɢᴏ!"
+
+
+
+
+
+
+
+
+

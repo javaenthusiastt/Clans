@@ -57,10 +57,10 @@ public class DiscordAPI extends ListenerAdapter {
 
         if (cooldowns.containsKey(userId)) {
             long lastUsed = cooldowns.get(userId);
-            long COOLDOWN_TIME = 10000;
-            if (currentTime - lastUsed < COOLDOWN_TIME) {
-                long secondsRemaining = (COOLDOWN_TIME - (currentTime - lastUsed)) / 1000;
-                event.reply("Please wait " + secondsRemaining + " seconds before using this again.").setEphemeral(true).queue();
+            long cd_time = 10000;
+            if (currentTime - lastUsed < cd_time) {
+                long remaining = (cd_time - (currentTime - lastUsed)) / 1000;
+                event.reply("Please wait " + remaining + " seconds before using this again.").setEphemeral(true).queue();
                 return;
             }
         }

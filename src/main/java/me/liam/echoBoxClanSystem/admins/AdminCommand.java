@@ -101,28 +101,6 @@ public class AdminCommand implements CommandExecutor {
         return value ? ChatColor.GREEN + "True" : ChatColor.RED + "False";
     }
 
-    public ItemStack createItem(Material material, String displayName, String... loreLines) {
-        ItemStack item = new ItemStack(material);
-        ItemMeta meta = item.getItemMeta();
-        if (meta != null) {
-            meta.setDisplayName(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', displayName));
-            if (loreLines != null && loreLines.length > 0) {
-                List<String> lore = new ArrayList<>();
-                for (String line : loreLines) {
-                    lore.add(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', line));
-                }
-                meta.setLore(lore);
-            }
-            if (material == Material.ITEM_FRAME || material == Material.EMERALD || material == Material.NAME_TAG) {
-                meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
-                meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            }
-            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-            item.setItemMeta(meta);
-        }
-        return item;
-    }
-
     public int getNumberOfClans() {
         return dataManager.getClans().size();
     }

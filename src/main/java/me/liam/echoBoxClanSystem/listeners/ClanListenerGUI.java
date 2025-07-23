@@ -32,6 +32,20 @@ import java.util.regex.Pattern;
 
 public class ClanListenerGUI implements Listener {
 
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    // CLEAR THIS CLASS UP, JESUS CHRIST
+    
+
     private final DataManager dataManager;
     private final ColorGUI changeColorGUI;
     private final ClanMembersGUI clanMembersGUI;

@@ -44,7 +44,17 @@ public class ClanListenerGUI implements Listener {
     // CLEAR THIS CLASS UP, JESUS CHRIST
     // CLEAR THIS CLASS UP, JESUS CHRIST
     // CLEAR THIS CLASS UP, JESUS CHRIST
-    
+
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
+    // I know it's fucking disgusting, but this was done as a developer application so i just sent it in a single listener class because i'm a moron and i don't even know why this is even up on Github ^_^
 
     private final DataManager dataManager;
     private final ColorGUI changeColorGUI;
